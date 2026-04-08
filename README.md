@@ -1,8 +1,17 @@
-# MoodNet — Etapa A
-### Reconhecimento de Emoções com Redes Neurais Convolucionais
+<div align="center">
+  <img src="media/logo.png" alt="MoodNet" width="320"/>
 
-> Projeto educacional desenvolvido com ❤️ pela **Prof.ª Maristela**  
-> Disciplina de **Deep Learning** · Faculdade de Tecnologia e Inovação Senac DF
+  <p><em>Desenhe um emoji simples e veja como a IA classifica a emoção.</em><br>
+  <strong>Etapa A: 😊 feliz · 😢 triste · 😐 neutro</strong></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="media/memoji.png" alt="Prof.ª Maristela" width="72"/><br>
+  Projeto educacional desenvolvido com ❤️ pela <strong>Prof.ª Maristela</strong><br>
+  Disciplina de <strong>Deep Learning</strong> · Faculdade de Tecnologia e Inovação Senac DF
+</div>
 
 ---
 
