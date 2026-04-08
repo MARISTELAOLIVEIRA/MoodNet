@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodNet - Etapa A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="professor-badge">
+        <img src="/media/memoji.png" alt="Prof.ª Maristela">
+        <span>Prof.ª Maristela</span>
+    </div>
+
+    <main class="container">
+        <section class="card hero">
+            <img class="hero-logo" src="/media/logo.png" alt="MoodNet">
+            <div class="hero-text">
+                <p class="subtitle">Desenhe um emoji simples e veja como a IA classifica a emoção.</p>
+                <p class="hint">Etapa A: 😊 feliz, 😢 triste e 😐 neutro</p>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="card canvas-card">
+                <h2>Área de desenho</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="drawingCanvas" width="420" height="420">
+                        Seu navegador não suporta canvas.
+                    </canvas>
+                </div>
+                <div class="actions">
+                    <button id="clearBtn" type="button">Limpar</button>
+                    <button id="predictBtn" type="button">Analisar</button>
+                </div>
+                <p class="tip">🎯 Dica: olhos e boca são os sinais principais; o contorno redondo do rosto é opcional.</p>
+            </div>
+
+            <div class="card result-card">
+                <h2>Resultado da IA</h2>
+                <div id="status" class="status">Aguardando análise...</div>
+                <div class="result-line"><span>Emoção:</span> <strong id="emotion">--</strong></div>
+                <div class="result-line"><span>Confiança:</span> <strong id="confidence">--</strong></div>
+
+                <div class="probabilities">
+                    <h3>Probabilidades</h3>
+                    <div id="probabilityList"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Desenvolvido com ❤️ pela Prof.ª Maristela para a disciplina de Deep Learning da
+        <strong>Faculdade de Tecnologia e Inovação Senac DF</strong>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

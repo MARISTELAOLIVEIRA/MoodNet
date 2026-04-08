@@ -1,0 +1,236 @@
+:root {
+    --bg: #08110b;
+    --panel: #112218;
+    --panel-2: #163124;
+    --text: #e7fff1;
+    --muted: #a6d1b3;
+    --accent: #67ff9b;
+    --border: #29503a;
+}
+
+#neuralBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+    background: transparent;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #102116, var(--bg));
+    color: var(--text);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.footer {
+    text-align: center;
+    padding: 24px 16px 16px;
+    font-size: 0.72rem;
+    color: var(--border);
+    line-height: 1.6;
+}
+
+.footer strong {
+    color: var(--muted);
+    font-weight: normal;
+}
+
+.professor-badge {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: 100;
+}
+
+.professor-badge img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+.professor-badge span {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hero {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 180px;
+}
+
+.hero-text p {
+    margin: 4px 0;
+}
+
+.hero-logo {
+    display: block;
+    width: clamp(110px, 18vw, 170px);
+    max-width: 55%;
+    height: auto;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background: linear-gradient(180deg, var(--panel), var(--panel-2));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+.subtitle, .hint, .tip {
+    color: var(--muted);
+}
+
+.canvas-wrapper {
+    width: 420px;
+    height: 420px;
+    margin: 16px auto;
+    padding: 0;
+    border-radius: 14px;
+    border: 2px dashed #97b3a0;
+    background:
+        linear-gradient(45deg, #f4f4f4 25%, transparent 25%),
+        linear-gradient(-45deg, #f4f4f4 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f4f4f4 75%),
+        linear-gradient(-45deg, transparent 75%, #f4f4f4 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    overflow: hidden;
+}
+
+#drawingCanvas {
+    width: 420px;
+    height: 420px;
+    background: #f5f5f5;
+    display: block;
+    cursor: crosshair;
+    touch-action: none;
+    border: 2px solid #333333;
+    border-radius: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+button {
+    background: var(--accent);
+    color: #05230f;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.status {
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(103, 255, 155, 0.12);
+    border: 1px solid rgba(103, 255, 155, 0.18);
+    margin-bottom: 18px;
+}
+
+.result-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.probabilities {
+    margin-top: 20px;
+}
+
+.prob-item {
+    margin-bottom: 12px;
+}
+
+.prob-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    color: var(--muted);
+}
+
+.bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4ddd82, #a3ffbe);
+}
+
+@media (max-width: 420px) {
+    .canvas-wrapper,
+    canvas {
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+    }
+}
